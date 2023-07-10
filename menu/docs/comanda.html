@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Comandas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/comanda.css">
+
+</head>
+
+<body>
+  <header>
+    <div>
+      <img class="cabecera" src="imagenes/huelga.svg" alt="huelga bar">
+    </div>
+
+  </header>
+  <main class="menu" id="menu">
+    <div id="app" class="menu">
+
+      <div v-if="error">
+        <p>Lo sentimos , ........</p>
+      </div>
+      <div v-else>
+
+        <div class="loader" v-if="cargando"><img src="./imagenes/loader.svg" alt=""></div>
+
+        <section v-else>
+
+
+            <div class="contenedor" v-for="(grupo,name, index) in grupos ">
+              <h3 class="grupo">{{name }}
+              </h3>
+              <section>
+                <div v-for="obj in grupo" :key="obj.id">
+                  <h4 class="articulo">{{ obj.nombre }}</h4>
+
+                  <div class="tipos">
+                    <div v-for="index in 5" :key="index">
+                      <span class="tipo" :id="tipo" v-if="obj[`tipo${index}`]">
+                        {{ obj['tipo' + index] }}</span>
+                      <select v-if="obj[`tipo${index}`]" :id="`${obj.nombre +'-'+obj['tipo'+index]}`">
+                        <option v-for="index in 21" :key="index" :value="`${index-1}`">{{index-1}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+              <div class="comentarios">
+                <textarea :name="`comentarios.${name}`" :id="`comentarios.${name}`" cols="60" rows="5"
+                  placeholder="Aclaraciones o comentarios"></textarea>
+              </div>
+
+            </div>
+            <p class="enviar">
+              <button v-on:click="confirmar" id="enviar">Confirmar</button>
+              
+            </p>
+            <div class="print" :class="{ mostrar: ver }">
+              <h2>Comanda</h2>
+              <p>Pedidos:</p>
+              <div class="pedidos" v-for="obj in pedidos"><p class="uno">{{ obj[0] }}</p><p>{{obj[1] || "Comentarios"}}</p>
+              </div>
+              <p class="coment">Comentarios:</p>
+              <div class="pedidos" v-for="coment in comentarios">
+                <p>{{ coment }}</p>
+              </div>
+              <button class="imprimir" v-on:click="refrescar" id="enviar">Enviar</button>
+            </div>
+
+          <br><br><br><br><br>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Huelga Bar</p>
+
+  </footer>
+  <script>
+
+    src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity = "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin = "anonymous"</script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!--Link de VUE-->
+  <script src="../js/menu.js" type="module"></script>
+  <!-- <script src="../js/comanda.js"></script> -->
+</body>
+
+</html>
