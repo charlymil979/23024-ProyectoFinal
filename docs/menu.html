@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Huelga Bar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+  <header>
+    <img class="cabecera" src="imagenes/huelga.svg" alt="huelga bar">
+  
+    <article>
+      <p class="titular">
+        Somos Huelga Bar. <br>
+        Un lugar pensado para quienes quieren <br>
+        encontrar un ambiente distinto en adrogué</p>
+    </article>
+    <div class="container">
+      <img class="portada" src="./imagenes/chop.jpg" title="cerveza" alt="chop">
+      <img class="portada" src="imagenes/coctail.jpg" alt="coctail" title="tragos">
+      <img class="portada" title="Hamburguesa" src="imagenes/hamburguesa.jpg" alt="hamburguesa">
+  
+    </div>
+  </header>
+  <main class="menu">
+    <div id="app" class="menu">
+
+      <div v-if="error">
+        <p>Lo sentimos , ........</p>
+      </div>
+      <div v-else>
+
+          <div class="loader" v-if="cargando"><img src="./imagenes/loader.svg" alt=""></div>
+
+        <section v-else>
+
+            <div>
+              <div v-for="(grupo,name, index) in grupos " >
+                <h3 >{{name }} HUELGA</a>
+                </h3>              
+                <section class="seccion1 activa">
+                <div class="" v-for="obj in grupo" :key="obj.id">
+                  <h4 class="articulo">{{ obj.nombre }}</h4>
+                  <div class="articulo1">
+                  <div class="descripcion">{{ obj.descripcion }}</div>
+                  <div class="tipos">
+                    <div v-for="index in 5" :key="index">
+                      <span class="tipo" v-if="obj[`tipo${index}`]">
+                        {{ obj['tipo' + index] }}</span>
+                        <span class="precio" v-if="obj[`tipo${index}`]">
+                          {{ obj['precio' + index] }}</span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                </section>
+              </div>
+            </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Toca los iconos de nuestras redes acá abajo y comunicate con nosotros</p>
+    <div class="footer">
+      <a href="https://api.whatsapp.com/send?phone=+5491173693957&text=Somos%20Huelga,%20%C2%BFen%20que%20podemos%20ayudarte?"
+        target="_blank"><img src="imagenes/what.png" alt="whatsapp" height="30rem">11-7369-3957</a>
+
+      <a href="https://www.instagram.com/huelgabar/" target="_blank"><img src="imagenes/instagram.png" alt="instagram"
+          height="30rem"> @HUELGABAR</a>
+      <a href="https://www.google.com.ar/maps/place/Mariano+Demar%C3%ADa+595,+B1846CBH+Adrogu%C3%A9,+Provincia+de+Buenos+Aires/@-34.7963642,-58.3925762,17z/data=!3m1!4b1!4m5!3m4!1s0x95bcd33ee0db60b7:0x8885e93721374000!8m2!3d-34.7963642!4d-58.3903875"
+        target="_blank">Visitanos<img src="imagenes/google-maps-icon.svg" height="25rem" alt="google-maps"></a>
+    </div>
+  </footer>
+  <script>
+
+    src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity = "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin = "anonymous"</script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!--Link de VUE-->
+  <script src="../js/menu.js"></script>
+  <!-- <script src="../js/manejo.js"></script> -->
+</body>
+
+</html>
