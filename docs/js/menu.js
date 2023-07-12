@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      url: "http://ccontreras.pythonanywhere.com/menu",
+      url: "https://ccontreras.pythonanywhere.com/menu",
       error: false,
       cargando: true,
       grupos: {},
