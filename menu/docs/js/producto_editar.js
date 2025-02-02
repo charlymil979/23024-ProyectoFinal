@@ -19,7 +19,7 @@ createApp({
       precio4: "",
       tipo5: "",
       precio5: "",
-      url: "http://ccontreras.pythonanywhere.com/menu/" + id,
+      url: "https://ccontreras.pythonanywhere.com/menu/" + id,
     };
   },
   methods: {
